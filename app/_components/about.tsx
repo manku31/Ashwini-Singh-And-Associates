@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import { values } from "../data";
 
-export function About() {
+export function About({ showMore = true }: { showMore?: boolean }) {
   return (
     <section id="about" className="wrap scroll-mt-24 py-16 sm:py-24 lg:py-32">
       <div className="grid items-center gap-16 lg:grid-cols-12 lg:gap-6">
@@ -56,11 +57,13 @@ export function About() {
               </li>
             ))}
           </ul>
-          <div className="mt-10">
-            <a href="#contact" className="btn btn-outline !h-[52px]">
-              More About Us
-            </a>
-          </div>
+          {showMore && (
+            <div className="mt-10">
+              <Link href="/about" className="btn btn-outline !h-[52px]">
+                More About Us
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </section>

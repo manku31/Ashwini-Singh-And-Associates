@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { services, whyUs, type IconName } from "../data";
 import { Arrow } from "./hero";
 
@@ -10,7 +11,7 @@ const icons: Record<IconName, React.ReactNode> = {
   cfo: (<><circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3.5 2" /></>),
 };
 
-export function Services() {
+export function Services({ showAll = true }: { showAll?: boolean }) {
   return (
     <>
       <section id="services" className="scroll-mt-20 border-t border-navy/5 bg-sand">
@@ -26,15 +27,21 @@ export function Services() {
               <p className="text-[17px] leading-relaxed text-slate-body">
                 End-to-end accounting, assurance and advisory under one roof — so your compliance, tax and growth plans all speak to each other.
               </p>
-              <a href="#contact" className="border-b border-gold pb-[3px] text-sm font-semibold">
-                Discuss your requirement
-              </a>
+              {showAll ? (
+                <Link href="/services" className="border-b border-gold pb-[3px] text-sm font-semibold">
+                  View all services
+                </Link>
+              ) : (
+                <Link href="/contact" className="border-b border-gold pb-[3px] text-sm font-semibold">
+                  Discuss your requirement
+                </Link>
+              )}
             </div>
           </div>
 
           <div data-stagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <article key={s.title} className="card flex flex-col gap-[18px] rounded-xl border border-navy/10 bg-white px-6 py-8 sm:px-8 sm:py-9">
+              <article key={s.title} className="card relative flex flex-col gap-[18px] rounded-xl border border-navy/10 bg-white px-6 py-8 sm:px-8 sm:py-9">
                 <span aria-hidden="true" className="icon-tile flex h-[52px] w-[52px] items-center justify-center rounded-[10px] bg-gold/15 text-gold-mid">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     {icons[s.icon]}
@@ -47,15 +54,22 @@ export function Services() {
                     <li key={p}>— {p}</li>
                   ))}
                 </ul>
-                <a href="#contact" className="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-semibold">
+                <Link href={`/services/${s.slug}`} className="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-semibold after:absolute after:inset-0 after:content-['']">
                   Learn more <Arrow size={14} stroke="#9C8047" />
-                </a>
+                </Link>
               </article>
             ))}
           </div>
         </div>
       </section>
 
+    </>
+  );
+}
+
+export function WhyUs() {
+  return (
+    <>
       <section aria-labelledby="why-h" className="wrap py-16 sm:py-24 lg:py-32">
         <div data-reveal className="mb-14 max-w-2xl">
           <p className="eyebrow mb-6">Why choose us</p>

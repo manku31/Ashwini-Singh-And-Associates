@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SHOW_SAMPLE_LABEL, reviews } from "../data";
 import { Marquee } from "./marquee";
 import { NewsletterForm } from "./newsletter-form";
@@ -80,7 +81,7 @@ export function CtaBand() {
             Tailored guidance on cash flow, growth and long-term profitability — from a CA who knows your numbers.
           </p>
           <div className="mt-9 flex flex-col gap-3.5 sm:flex-row">
-            <a href="#contact" className="btn btn-gold w-full sm:w-auto">Schedule a Consultation</a>
+            <Link href="/contact" className="btn btn-gold w-full sm:w-auto">Schedule a Consultation</Link>
             <a href="tel:+910000000000" className="btn btn-outline-light w-full sm:w-auto">Call [+91 XXXXX XXXXX]</a>
           </div>
         </div>

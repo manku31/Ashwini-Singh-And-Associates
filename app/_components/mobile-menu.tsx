@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { createPortal } from "react-dom";
 import { nav } from "../data";
+import { isActive } from "./nav-links";
 
 /**
  * Full-screen mobile menu (< lg). Rendered through a portal so the header's
@@ -10,6 +13,7 @@ import { nav } from "../data";
  */
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   // false during SSR/hydration, true on the client — the portal needs `document`
   const mounted = useSyncExternalStore(
     () => () => {},
@@ -56,25 +60,26 @@ export function MobileMenu() {
               <ul className="flex flex-col">
                 {nav.map((item, i) => (
                   <li key={item.href} className="menu-item border-b border-navy/10" style={{ animationDelay: `${80 + i * 60}ms` }}>
-                    <a
+                    <Link
                       href={item.href}
+                      aria-current={isActive(pathname, item.href) ? "page" : undefined}
                       onClick={() => setOpen(false)}
                       className="group flex items-center gap-4 py-5 active:bg-sand"
                     >
                       <span className="w-7 font-serif text-sm italic text-gold-mid">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="flex-1 font-serif text-[28px] font-semibold leading-none text-navy">{item.label}</span>
+                      <span className={`flex-1 font-serif text-[28px] font-semibold leading-none ${isActive(pathname, item.href) ? "text-gold-ink" : "text-navy"}`}>{item.label}</span>
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9C8047" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="transition-transform group-active:translate-x-1">
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
 
               <div className="menu-item mt-auto pt-10" style={{ animationDelay: `${80 + nav.length * 60}ms` }}>
-                <a href="#contact" onClick={() => setOpen(false)} className="btn btn-gold w-full">
+                <Link href="/contact" onClick={() => setOpen(false)} className="btn btn-gold w-full">
                   Book a Consultation
-                </a>
+                </Link>
                 <p className="mt-5 text-center text-xs tracking-[0.2em] text-gold-ink">CHARTERED ACCOUNTANTS · ADVISORS</p>
               </div>
             </nav>

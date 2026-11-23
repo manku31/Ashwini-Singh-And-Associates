@@ -2,7 +2,7 @@ import { process, testimonials } from "../data";
 
 export function Process() {
   return (
-    <section aria-labelledby="process-h" className="relative overflow-hidden bg-navy text-white">
+    <section id="process" aria-labelledby="process-h" className="scroll-mt-20 relative overflow-hidden bg-navy text-white">
       <div className="grid-dark absolute inset-0" aria-hidden="true" />
       <div aria-hidden="true" className="absolute -right-44 -top-56 h-[560px] w-[560px] rounded-full border border-gold/35" />
       <div className="wrap relative py-16 sm:py-24 lg:py-32">

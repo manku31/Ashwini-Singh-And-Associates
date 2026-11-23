@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ContactForm } from "./contact-form";
 import { Logo } from "./header";
 
@@ -54,11 +55,13 @@ export function Contact() {
 }
 
 const footerCols = [
-  { title: "FIRM", links: ["About Us", "Our Team", "Careers", "Contact Us"] },
-  { title: "SERVICES", links: ["Audit & Assurance", "Tax Advisory", "GST & Indirect Tax", "Virtual CFO", "Explore all services"] },
-  { title: "RESOURCES", links: ["Insights", "Compliance calendar", "FAQs"] },
+  { title: "FIRM", links: [["About Us", "/about"], ["Our Process", "/about#process"], ["Contact Us", "/contact"]] },
+  {
+    title: "SERVICES",
+    links: [["Audit & Assurance", "/services/audit-assurance"], ["Tax Advisory", "/services/tax-advisory"], ["GST & Indirect Tax", "/services/gst-indirect-tax"], ["Virtual CFO", "/services/virtual-cfo-advisory"], ["All services", "/services"]],
+  },
+  { title: "RESOURCES", links: [["Insights", "/resources"], ["FAQs", "/resources#faq"], ["Book a consultation", "/contact"]] },
 ];
-
 export function Footer() {
   return (
     <footer className="bg-navy text-white">
@@ -69,9 +72,9 @@ export function Footer() {
             <p className="max-w-[340px] text-[15px] leading-relaxed text-white/75">
               Chartered Accountants providing audit, tax and advisory services to businesses and individuals.
             </p>
-            <a href="#contact" className="btn btn-gold !h-12 w-full !px-[22px] !text-sm sm:w-auto sm:self-start">
+            <Link href="/contact" className="btn btn-gold !h-12 w-full !px-[22px] !text-sm sm:w-auto sm:self-start">
               Book a Consultation
-            </a>
+            </Link>
           </div>
           {footerCols.map((c, i) => (
             <nav
@@ -80,10 +83,10 @@ export function Footer() {
               className={`flex flex-col gap-1 text-sm [&>a]:py-1.5 lg:gap-3.5 lg:[&>a]:py-0 ${["lg:col-span-2 lg:col-start-6", "lg:col-span-3 lg:col-start-8", "lg:col-span-2 lg:col-start-11"][i]}`}
             >
               <span className="mb-1.5 text-xs font-semibold tracking-[0.2em] text-gold-light">{c.title}</span>
-              {c.links.map((l) => (
-                <a key={l} href="#top" className="text-white/75 hover:text-white">
-                  {l}
-                </a>
+              {c.links.map(([label, href]) => (
+                <Link key={label} href={href} className="text-white/75 hover:text-white">
+                  {label}
+                </Link>
               ))}
             </nav>
           ))}

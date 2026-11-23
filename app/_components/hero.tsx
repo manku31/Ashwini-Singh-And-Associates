@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { clientele, stats } from "../data";
 import { CountUp } from "./count-up";
 
@@ -24,12 +25,12 @@ export function Hero() {
               Expert Chartered Accountancy, Audit, &amp; Advisory services tailored for businesses and individuals.
             </p>
             <div className="mt-9 flex flex-col gap-3.5 sm:mt-11 sm:flex-row sm:flex-wrap">
-              <a href="#services" className="btn btn-dark w-full sm:w-auto">
+              <Link href="/services" className="btn btn-dark w-full sm:w-auto">
                 Explore Our Services <Arrow />
-              </a>
-              <a href="#about" className="btn btn-outline w-full sm:w-auto">
+              </Link>
+              <Link href="/about" className="btn btn-outline w-full sm:w-auto">
                 Meet Our Team
-              </a>
+              </Link>
             </div>
             <dl className="mt-12 grid max-w-[560px] grid-cols-3 sm:mt-16 border-t border-navy/10 pt-8">
               {stats.map((s, i) => (

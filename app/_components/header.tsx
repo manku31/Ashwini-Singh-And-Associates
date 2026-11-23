@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { nav } from "../data";
+import Link from "next/link";
 import { MobileMenu } from "./mobile-menu";
+import { NavLinks } from "./nav-links";
 
 export function Logo({ dark = false }: { dark?: boolean }) {
   return (
@@ -26,28 +27,17 @@ export function Header() {
   return (
     <header id="site-header" className="sticky top-0 z-40 border-b border-navy/10 bg-cream/95 backdrop-blur">
       <div className="wrap flex h-[68px] items-center justify-between gap-3 sm:h-[76px] sm:gap-6">
-        <a href="#top" aria-label="Ashwini Singh and Associates — home" className="min-w-0">
+        <Link href="/" aria-label="Ashwini Singh and Associates — home" className="min-w-0">
           <Logo />
-        </a>
+        </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-6 text-[14.5px] font-medium lg:flex xl:gap-10">
-          {nav.map((item, i) => (
-            <a
-              key={item.href}
-              href={item.href}
-              aria-current={i === 0 ? "page" : undefined}
-              className={`nav-link px-0.5 py-2.5 hover:text-gold-ink ${i === 0 ? "font-semibold text-navy" : "text-slate-body"}`}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <NavLinks />
 
         {/* desktop-only: the wrapper (not the button) is what hides it on mobile */}
         <div className="hidden shrink-0 xl:block">
-          <a href="#contact" className="btn btn-gold !h-[44px] !px-[20px] !text-sm whitespace-nowrap">
+          <Link href="/contact" className="btn btn-gold !h-[44px] !px-[20px] !text-sm whitespace-nowrap">
             Book a Consultation
-          </a>
+          </Link>
         </div>
 
         <MobileMenu />

@@ -1,9 +1,9 @@
 export const nav = [
-  { label: "Home", href: "#top" },
-  { label: "About Us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Resources", href: "#resources" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Resources", href: "/resources" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const stats = [
@@ -22,39 +22,45 @@ export const values = [
 
 export type IconName = "audit" | "tax" | "finance" | "gst" | "law" | "cfo";
 
-export const services: { icon: IconName; title: string; text: string; points: string[] }[] = [
+export const services: { slug: string; icon: IconName; title: string; text: string; points: string[] }[] = [
   {
     icon: "audit",
+    slug: "audit-assurance",
     title: "Audit & Assurance",
     text: "Independent audits that give lenders, investors and regulators confidence in your numbers.",
     points: ["Statutory & internal audit", "Tax audit (Sec. 44AB)", "Stock & concurrent audit"],
   },
   {
     icon: "tax",
+    slug: "tax-advisory",
     title: "Tax Advisory",
     text: "Proactive income-tax planning, filings and representation for businesses and individuals.",
     points: ["ITR filing & tax planning", "Assessments & notices", "NRI & international tax"],
   },
   {
     icon: "finance",
+    slug: "corporate-finance",
     title: "Corporate Finance",
     text: "Clear-eyed support for funding, valuations and transactions as your company scales.",
     points: ["Business valuations", "Due diligence", "Project & loan reports"],
   },
   {
     icon: "gst",
+    slug: "gst-indirect-tax",
     title: "GST & Indirect Tax",
     text: "Registration, returns and reconciliations handled on time, every cycle.",
     points: ["GST registration & returns", "ITC reconciliation", "Audits, refunds & notices"],
   },
   {
     icon: "law",
+    slug: "company-law-compliance",
     title: "Company Law & Compliance",
     text: "Incorporation to annual filings — your secretarial calendar, managed.",
     points: ["Company & LLP incorporation", "ROC annual filings", "FEMA & RBI compliance"],
   },
   {
     icon: "cfo",
+    slug: "virtual-cfo-advisory",
     title: "Virtual CFO & Advisory",
     text: "Senior finance leadership on demand, without a full-time hire.",
     points: ["Bookkeeping & MIS reports", "Budgeting & cash-flow", "Board & investor reporting"],
@@ -135,3 +141,37 @@ export const reviews = [
   { name: "Arjun Mehta", meta: "NRI client · Dubai", tone: "gold", quote: "Handling Indian tax from abroad felt daunting. They managed the paperwork end to end and kept me informed at every step." },
   { name: "Sunita Deshmukh", meta: "Trustee, NGO · Mumbai", tone: "sand", quote: "Our trust's accounts and compliance were scattered. They organised the records, handled the filings and made our audit smooth." },
 ] as const;
+
+/** Longer copy for each /services/[slug] page. Written for this site — review before publishing. */
+export const serviceDetails: Record<string, { intro: string; includes: string[]; whoFor: string[] }> = {
+  "audit-assurance": {
+    intro: "An independent audit gives lenders, investors and regulators confidence in your financial statements — and gives you a clear view of where your controls are strong and where they are not.",
+    includes: ["Statutory audit of companies and LLPs", "Tax audit under Section 44AB", "Internal audit and process reviews", "Stock and concurrent audits for banks", "Audit of trusts, societies and NGOs", "Management letters with practical recommendations"],
+    whoFor: ["Companies & LLPs", "Businesses above audit thresholds", "Borrowers needing bank audits", "Trusts & NGOs"],
+  },
+  "tax-advisory": {
+    intro: "Good tax planning is done before the year ends, not after. We help individuals and businesses file accurately, choose the right structure and respond calmly when a notice arrives.",
+    includes: ["Income-tax return filing for individuals, firms and companies", "Old vs new regime comparison", "Advance-tax planning and computation", "Replies to notices and assessment representation", "NRI taxation, DTAA and repatriation advice", "Capital-gains planning"],
+    whoFor: ["Salaried professionals", "Business owners", "Freelancers & consultants", "NRIs"],
+  },
+  "corporate-finance": {
+    intro: "Raising money, valuing a business or negotiating a deal all depend on numbers that stand up to scrutiny. We prepare them and stand behind them.",
+    includes: ["Business valuations", "Financial due diligence", "Project reports and loan proposals", "Financial modelling and projections", "Fundraising documentation support", "Restructuring and exit planning"],
+    whoFor: ["Growing companies", "Startups raising capital", "Promoters planning exits", "Businesses seeking bank credit"],
+  },
+  "gst-indirect-tax": {
+    intro: "GST rewards precision and punishes delay. We keep registration, returns and credit reconciliation on schedule so that you never lose input credit to a mismatch.",
+    includes: ["GST registration and amendments", "Monthly and quarterly return filing", "Input-tax-credit reconciliation (GSTR-2B)", "GST audits and annual returns", "Refund claims", "Notices, assessments and appeals"],
+    whoFor: ["Traders & manufacturers", "E-commerce sellers", "Service providers", "Exporters"],
+  },
+  "company-law-compliance": {
+    intro: "Incorporation is only the first filing. We set up your entity correctly and then keep its statutory calendar clean year after year.",
+    includes: ["Company, LLP and OPC incorporation", "Annual ROC filings (AOC-4, MGT-7)", "Director KYC and appointments", "FEMA and RBI filings for foreign investment", "Share allotments and secretarial records", "Closure, strike-off and conversions"],
+    whoFor: ["New founders", "Foreign-funded companies", "Family businesses", "Startups"],
+  },
+  "virtual-cfo-advisory": {
+    intro: "Senior finance leadership without a full-time hire. We act as your outsourced finance team — planning, reporting and advising on the decisions that shape the business.",
+    includes: ["Monthly MIS and management reporting", "Budgeting and cash-flow forecasting", "Board and investor reporting", "Working-capital and cost control", "Accounting-system and process setup", "Regular strategy and review calls"],
+    whoFor: ["Founders & SMEs", "Scaling startups", "Owner-managed businesses", "Companies preparing to raise funds"],
+  },
+};
