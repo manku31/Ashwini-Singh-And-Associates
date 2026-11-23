@@ -14,7 +14,7 @@ export function Services() {
   return (
     <>
       <section id="services" className="scroll-mt-20 border-t border-navy/5 bg-sand">
-        <div className="wrap py-24 lg:py-32">
+        <div className="wrap py-16 sm:py-24 lg:py-32">
           <div data-reveal className="mb-14 grid items-end gap-8 lg:grid-cols-12 lg:gap-6">
             <div className="lg:col-span-6">
               <p className="eyebrow mb-6">What we do</p>
@@ -34,7 +34,7 @@ export function Services() {
 
           <div data-stagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <article key={s.title} className="card flex flex-col gap-[18px] rounded-xl border border-navy/10 bg-white px-8 py-9">
+              <article key={s.title} className="card flex flex-col gap-[18px] rounded-xl border border-navy/10 bg-white px-6 py-8 sm:px-8 sm:py-9">
                 <span aria-hidden="true" className="icon-tile flex h-[52px] w-[52px] items-center justify-center rounded-[10px] bg-gold/15 text-gold-mid">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     {icons[s.icon]}
@@ -56,7 +56,7 @@ export function Services() {
         </div>
       </section>
 
-      <section aria-labelledby="why-h" className="wrap py-24 lg:py-32">
+      <section aria-labelledby="why-h" className="wrap py-16 sm:py-24 lg:py-32">
         <div data-reveal className="mb-14 max-w-2xl">
           <p className="eyebrow mb-6">Why choose us</p>
           <h2 id="why-h" className="h2">

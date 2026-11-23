@@ -75,8 +75,12 @@ button:focus-visible {
   font-size: clamp(34px, 4vw, 48px);
 }
 
-.btn {
+/* :not(.hidden) lets Tailwind's hidden / xl:inline-flex control visibility */
+.btn:not(.hidden) {
   display: inline-flex;
+}
+.btn {
+  text-align: center;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -138,7 +142,7 @@ button:focus-visible {
   border-radius: 6px;
   background: var(--color-cream);
   font: inherit;
-  font-size: 15px;
+  font-size: 16px; /* >=16px stops iOS zoom-on-focus */
   color: var(--color-navy);
 }
 .field:focus {
@@ -266,3 +270,9 @@ html { scroll-padding-top: 96px; }
   }
   .reveal-pending { opacity: 1; transform: none; }
 }
+
+/* mobile menu sheet */
+@keyframes sheet-in { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
+@keyframes item-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.menu-sheet { animation: sheet-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.menu-item { animation: item-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }

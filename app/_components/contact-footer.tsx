@@ -23,7 +23,7 @@ const details = [
 
 export function Contact() {
   return (
-    <section id="contact" className="wrap scroll-mt-20 py-24 lg:py-32">
+    <section id="contact" className="wrap scroll-mt-20 py-16 sm:py-24 lg:py-32">
       <div className="grid items-start gap-14 lg:grid-cols-12 lg:gap-6">
         <div data-reveal className="flex flex-col lg:col-span-5">
           <p className="eyebrow mb-6">Contact us</p>
@@ -37,9 +37,9 @@ export function Contact() {
                 <span aria-hidden="true" className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-gold/15 text-gold-mid">
                   {d.icon}
                 </span>
-                <span className="flex flex-col gap-1">
+                <span className="flex min-w-0 flex-col gap-1">
                   <span className="text-xs font-semibold tracking-[0.16em] text-slate-body">{d.label}</span>
-                  <span className="text-base font-semibold">{d.value}</span>
+                  <span className="break-words text-base font-semibold">{d.value}</span>
                 </span>
               </li>
             ))}
@@ -62,14 +62,14 @@ const footerCols = [
 export function Footer() {
   return (
     <footer className="bg-navy text-white">
-      <div className="wrap pb-10 pt-20">
-        <div className="grid gap-12 border-b border-white/10 pb-16 lg:grid-cols-12 lg:gap-6">
-          <div className="flex flex-col gap-6 lg:col-span-4">
+      <div className="wrap pb-8 pt-14 lg:pb-10 lg:pt-20">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 border-b border-white/10 pb-12 sm:grid-cols-3 lg:grid-cols-12 lg:gap-6 lg:pb-16">
+          <div className="col-span-2 flex flex-col gap-6 sm:col-span-3 lg:col-span-4">
             <Logo dark />
             <p className="max-w-[340px] text-[15px] leading-relaxed text-white/75">
               Chartered Accountants providing audit, tax and advisory services to businesses and individuals.
             </p>
-            <a href="#contact" className="btn btn-gold !h-[46px] self-start !px-[22px] !text-sm">
+            <a href="#contact" className="btn btn-gold !h-12 w-full !px-[22px] !text-sm sm:w-auto sm:self-start">
               Book a Consultation
             </a>
           </div>
@@ -77,7 +77,7 @@ export function Footer() {
             <nav
               key={c.title}
               aria-label={`Footer — ${c.title.toLowerCase()}`}
-              className={`flex flex-col gap-3.5 text-sm ${["lg:col-span-2 lg:col-start-6", "lg:col-span-3 lg:col-start-8", "lg:col-span-2 lg:col-start-11"][i]}`}
+              className={`flex flex-col gap-1 text-sm [&>a]:py-1.5 lg:gap-3.5 lg:[&>a]:py-0 ${["lg:col-span-2 lg:col-start-6", "lg:col-span-3 lg:col-start-8", "lg:col-span-2 lg:col-start-11"][i]}`}
             >
               <span className="mb-1.5 text-xs font-semibold tracking-[0.2em] text-gold-light">{c.title}</span>
               {c.links.map((l) => (

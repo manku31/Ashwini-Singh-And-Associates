@@ -5,7 +5,7 @@ export function Process() {
     <section aria-labelledby="process-h" className="relative overflow-hidden bg-navy text-white">
       <div className="grid-dark absolute inset-0" aria-hidden="true" />
       <div aria-hidden="true" className="absolute -right-44 -top-56 h-[560px] w-[560px] rounded-full border border-gold/35" />
-      <div className="wrap relative py-24 lg:py-32">
+      <div className="wrap relative py-16 sm:py-24 lg:py-32">
         <div data-reveal className="mb-16 grid items-end gap-8 lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-7">
             <p className="eyebrow on-dark mb-6">How we work</p>
@@ -34,7 +34,7 @@ export function Process() {
 export function Testimonial() {
   const t = testimonials[0];
   return (
-    <section aria-label="Client testimonial" className="wrap py-24 lg:py-32">
+    <section aria-label="Client testimonial" className="wrap py-16 sm:py-24 lg:py-32">
       <figure data-reveal className="mx-auto flex max-w-[920px] flex-col items-center text-center">
         <span aria-hidden="true" className="h-14 font-serif text-[120px] leading-[0.6] text-gold">“</span>
         <blockquote className="mt-6 font-serif text-2xl font-medium leading-[1.4] sm:text-[34px]">{t.quote}</blockquote>

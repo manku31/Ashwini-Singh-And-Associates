@@ -9,7 +9,7 @@ const tones = {
 export function Resources() {
   return (
     <section id="resources" className="scroll-mt-20 border-y border-navy/5 bg-white">
-      <div className="wrap py-24 lg:py-32">
+      <div className="wrap py-16 sm:py-24 lg:py-32">
         <div data-reveal className="mb-14">
           <p className="eyebrow mb-6">Resources</p>
           <h2 className="h2">

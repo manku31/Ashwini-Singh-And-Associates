@@ -21,7 +21,7 @@ export function ContactForm() {
         // TODO: wire to an API route / email service.
         setSent(true);
       }}
-      className="grid gap-x-5 gap-y-[22px] rounded-xl border border-navy/10 bg-white p-6 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.35)] sm:grid-cols-2 sm:p-12"
+      className="grid gap-x-5 gap-y-[22px] rounded-xl border border-navy/10 bg-white p-5 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.35)] sm:grid-cols-2 sm:p-12"
     >
       <div className="flex flex-col gap-1.5 sm:col-span-2">
         <span className="text-[22px] font-bold">Request a callback</span>
