@@ -1,4 +1,5 @@
 import { credentials, pillars } from "../data";
+import { ShowMore } from "./show-more";
 
 export function Credentials() {
   return (
@@ -14,7 +15,8 @@ export function Credentials() {
   );
 }
 
-export function Pillars() {
+export function Pillars({ limit }: { limit?: number }) {
+  const shown = limit ? pillars.slice(0, limit) : pillars;
   return (
     <section id="virtual-cfo" aria-labelledby="pillars-h" className="wrap scroll-mt-20 py-16 sm:py-24 lg:py-32">
       <div data-reveal className="mb-14 grid items-end gap-8 lg:grid-cols-12 lg:gap-6">
@@ -30,7 +32,7 @@ export function Pillars() {
       </div>
 
       <ol data-stagger className="grid border-l border-t border-navy/10 sm:grid-cols-2 lg:grid-cols-3">
-        {pillars.map((p, i) => (
+        {shown.map((p, i) => (
           <li key={p.title} className="group flex flex-col gap-4 border-b border-r border-navy/10 bg-white/60 p-7 transition-colors hover:bg-white sm:p-8">
             <span className="font-serif text-[22px] italic text-gold-mid transition-transform duration-300 group-hover:translate-x-1">
               {String(i + 1).padStart(2, "0")}
@@ -45,6 +47,9 @@ export function Pillars() {
           </li>
         ))}
       </ol>
+      {limit && limit < pillars.length && (
+        <ShowMore href="/services#virtual-cfo" label="Show more Virtual CFO services" hint={`${pillars.length - limit} more areas we cover`} />
+      )}
     </section>
   );
 }

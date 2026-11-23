@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { services, whyUs, type IconName } from "../data";
 import { Arrow } from "./hero";
+import { ShowMore } from "./show-more";
 
 const icons: Record<IconName, React.ReactNode> = {
   audit: (<><rect x="5" y="4" width="14" height="17" rx="2" /><path d="M9 4V3h6v1" /><path d="M9 12.5l2 2 4-4" /><path d="M9 17.5h6" /></>),
@@ -11,7 +12,9 @@ const icons: Record<IconName, React.ReactNode> = {
   cfo: (<><circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3.5 2" /></>),
 };
 
-export function Services({ showAll = true }: { showAll?: boolean }) {
+export function Services({ showAll = true, limit }: { showAll?: boolean; limit?: number }) {
+  const shown = limit ? services.slice(0, limit) : services;
+  const hidden = services.length - shown.length;
   return (
     <>
       <section id="services" className="scroll-mt-20 border-t border-navy/5 bg-sand">
@@ -27,7 +30,7 @@ export function Services({ showAll = true }: { showAll?: boolean }) {
               <p className="text-[17px] leading-relaxed text-slate-body">
                 End-to-end accounting, assurance and advisory under one roof — so your compliance, tax and growth plans all speak to each other.
               </p>
-              {showAll ? (
+              {limit ? null : showAll ? (
                 <Link href="/services" className="border-b border-gold pb-[3px] text-sm font-semibold">
                   View all services
                 </Link>
@@ -40,7 +43,7 @@ export function Services({ showAll = true }: { showAll?: boolean }) {
           </div>
 
           <div data-stagger className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
+            {shown.map((s) => (
               <article key={s.title} className="card relative flex flex-col gap-[18px] rounded-xl border border-navy/10 bg-white px-6 py-8 sm:px-8 sm:py-9">
                 <span aria-hidden="true" className="icon-tile flex h-[52px] w-[52px] items-center justify-center rounded-[10px] bg-gold/15 text-gold-mid">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -60,6 +63,9 @@ export function Services({ showAll = true }: { showAll?: boolean }) {
               </article>
             ))}
           </div>
+          {hidden > 0 && (
+            <ShowMore href="/services" label="Show more services" hint={`${hidden} more ${hidden === 1 ? "service" : "services"} — Virtual CFO, GST, company law and more`} />
+          )}
         </div>
       </section>
 
@@ -67,7 +73,8 @@ export function Services({ showAll = true }: { showAll?: boolean }) {
   );
 }
 
-export function WhyUs() {
+export function WhyUs({ limit }: { limit?: number }) {
+  const shown = limit ? whyUs.slice(0, limit) : whyUs;
   return (
     <>
       <section aria-labelledby="why-h" className="wrap py-16 sm:py-24 lg:py-32">
@@ -81,7 +88,7 @@ export function WhyUs() {
           </p>
         </div>
         <ul data-stagger className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-          {whyUs.map((w, i) => (
+          {shown.map((w, i) => (
             <li key={w.title} className="flex flex-col gap-3 border-t border-gold/60 pt-6">
               <span className="font-serif text-[22px] italic text-gold-mid">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="text-lg font-bold">{w.title}</h3>
@@ -89,6 +96,7 @@ export function WhyUs() {
             </li>
           ))}
         </ul>
+        {limit && limit < whyUs.length && <ShowMore href="/about" label="Show more about us" />}
       </section>
     </>
   );

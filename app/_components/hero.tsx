@@ -46,7 +46,7 @@ export function Hero() {
           </div>
 
           {/* Pre-composed hero visual (photo + gold/navy shapes baked into the image) */}
-          <div className="hero-img mx-auto w-full max-w-[560px] lg:col-span-6 lg:max-w-none">
+          <div className="hero-img relative mx-auto w-full max-w-[560px] lg:col-span-6 lg:max-w-none">
             <Image
               src="/images/founder-hero-new.jpg"
               alt="CA Ashwini Singh, founder, in a tailored dark blazer in a sunlit office"
@@ -56,6 +56,11 @@ export function Hero() {
               sizes="(min-width: 1024px) 600px, 90vw"
               className="h-auto w-full"
             />
+            <p className="float-badge absolute bottom-4 left-4 flex items-center gap-2.5 rounded-full border border-navy/10 bg-white/90 py-2 pl-3.5 pr-4 text-sm text-navy shadow-sm backdrop-blur sm:bottom-8 sm:left-8">
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gold" />
+              <span className="font-semibold">CA Ashwini Singh</span>
+              <span className="text-slate-body">Founder</span>
+            </p>
           </div>
         </div>
       </section>

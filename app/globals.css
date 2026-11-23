@@ -326,3 +326,10 @@ html { scroll-padding-top: 96px; }
 
 /* current page in the desktop nav */
 .nav-link[aria-current="page"] { color: var(--color-navy); font-weight: 600; }
+
+/* hero name badge: slow, gentle float */
+@keyframes badge-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-0.6deg); }
+  50% { transform: translate3d(0, -9px, 0) rotate(0.6deg); }
+}
+.float-badge { animation: badge-float 6s ease-in-out infinite; will-change: transform; }

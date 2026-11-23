@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Auto-scrolling, seamless, left → right carousel that you can also move by hand:
+ * Auto-scrolling, seamless, right → left carousel that you can also move by hand:
  *  - drag with the mouse (or swipe on touch), with a little momentum
  *  - mouse wheel while the pointer is over the cards (vertical or horizontal)
  *  - click a card to glide it to the centre
@@ -29,7 +29,7 @@ export function Marquee({ children, speed = 36, label }: { children: React.React
     const measure = () => {
       const first = st.w === 0;
       st.w = g.getBoundingClientRect().width;
-      if (first) st.x = -st.w; // start at the far end so the drift runs left → right
+      if (first) st.x = 0;
     };
     measure();
     const ro = new ResizeObserver(measure);
@@ -58,7 +58,7 @@ export function Marquee({ children, speed = 36, label }: { children: React.React
           st.v *= Math.pow(0.04, dt); // momentum decay
         } else {
           st.v = 0;
-          if (!reduce && !st.hover) st.x += speed * dt;
+          if (!reduce && !st.hover) st.x -= speed * dt;
         }
       }
       wrap();

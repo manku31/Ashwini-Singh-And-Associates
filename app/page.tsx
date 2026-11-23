@@ -11,9 +11,9 @@ export default function Home() {
       <Hero />
       <Credentials />
       <About />
-      <Services />
-      <WhyUs />
-      <Pillars />
+      <Services limit={3} />
+      <WhyUs limit={3} />
+      <Pillars limit={3} />
       <Process />
       <Reviews />
       <CtaBand />

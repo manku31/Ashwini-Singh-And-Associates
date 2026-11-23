@@ -41,7 +41,7 @@ export function Reviews() {
         </div>
       </div>
 
-      {/* Auto-drifts left → right; drag, swipe, trackpad, arrows and arrow keys also work. */}
+      {/* Auto-drifts right → left; drag, swipe, trackpad, arrows and arrow keys also work. */}
       <Marquee label="Client reviews">
         {reviews.map((r) => (
           <li key={r.name} className="card flex w-[300px] shrink-0 flex-col gap-5 rounded-xl border border-navy/10 bg-white p-7 sm:w-[370px] sm:p-8">
