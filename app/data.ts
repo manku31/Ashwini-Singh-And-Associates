@@ -98,3 +98,40 @@ export const testimonials = [
     role: "[Role, Company]",
   },
 ];
+
+/* Virtual CFO service pillars — categories common to the profession, written in our own words. */
+export const pillars = [
+  { title: "Financial Strategy & Planning", text: "Forward-looking plans built on your numbers, so decisions rest on data rather than instinct.", points: ["Financial modelling & projections", "Budgets & annual operating plans", "Cash-flow forecasting"] },
+  { title: "MIS & Management Reporting", text: "Clear monthly reports that turn raw books into decisions you can act on.", points: ["Monthly MIS packs", "Unit economics & variance analysis", "Board & investor reporting"] },
+  { title: "Cash Flow & Working Capital", text: "Keep enough liquidity to run the business and fund its growth.", points: ["Receivables & payables control", "Working-capital optimisation", "Cash-burn tracking"] },
+  { title: "Fundraising & Investor Support", text: "Get ready to raise capital and manage investors with confidence.", points: ["Investor-ready projections", "Pitch-deck financials", "Valuation & due-diligence support"] },
+  { title: "Compliance & Governance", text: "Strong controls and clean compliance, so audits hold no surprises.", points: ["Accounting review & audit readiness", "Internal-controls design", "GST, income-tax & ROC oversight"] },
+  { title: "Systems & Process Automation", text: "Finance systems that scale without adding headcount.", points: ["Accounting-software selection", "ERP advisory & roll-out", "Workflow automation"] },
+  { title: "Founder Advisory & CFO Support", text: "A finance partner on call for the decisions that shape the business.", points: ["Decision support", "Expansion feasibility studies", "Periodic financial reviews"] },
+  { title: "M&A Advisory", text: "Financial guidance through acquisitions, mergers and exits.", points: ["Target screening & deal strategy", "Financial due diligence", "Business valuation"] },
+  { title: "Cost Control & Profitability", text: "Find the margin you are leaving on the table.", points: ["Cost-structure analysis", "Expense optimisation", "Pricing-strategy advice"] },
+];
+
+/* Placeholders — replace with the firm's real credentials. Nothing here is borrowed from another practice. */
+export const credentials = [
+  "[Qualification — e.g. Chartered Accountant, ICAI]",
+  "[Years of experience]",
+  "[Recognition or award]",
+  "[Additional certification]",
+  "[Languages spoken]",
+];
+
+/**
+ * SAMPLE reviews — fictional names and original text, here only to fill the layout.
+ * Replace with real, permission-cleared client reviews before launch, then set SHOW_SAMPLE_LABEL to false.
+ */
+export const SHOW_SAMPLE_LABEL = true;
+
+export const reviews = [
+  { name: "Rahul Verma", meta: "Founder, D2C brand · Pune", tone: "navy", quote: "Our GST filings were months behind. They cleaned up the backlog, reconciled everything and put a calendar in place. We haven't missed a due date since." },
+  { name: "Meera Kulkarni", meta: "Consultant · Navi Mumbai", tone: "gold", quote: "I used to dread tax season. The team explained my options in plain language, picked the right regime for me and filed well before the deadline." },
+  { name: "Imran Sheikh", meta: "Director, trading firm · Thane", tone: "sand", quote: "Responsive, patient and thorough. Every query got a clear answer, and our TDS returns are now filed on time, every quarter." },
+  { name: "Priya Nair", meta: "Co-founder, SaaS startup · Bengaluru", tone: "navy", quote: "The monthly MIS gave us numbers we could actually use. It made our investor conversations far easier and our planning much sharper." },
+  { name: "Arjun Mehta", meta: "NRI client · Dubai", tone: "gold", quote: "Handling Indian tax from abroad felt daunting. They managed the paperwork end to end and kept me informed at every step." },
+  { name: "Sunita Deshmukh", meta: "Trustee, NGO · Mumbai", tone: "sand", quote: "Our trust's accounts and compliance were scattered. They organised the records, handled the filings and made our audit smooth." },
+] as const;

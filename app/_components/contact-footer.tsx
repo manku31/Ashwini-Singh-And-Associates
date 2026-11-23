@@ -55,7 +55,7 @@ export function Contact() {
 
 const footerCols = [
   { title: "FIRM", links: ["About Us", "Our Team", "Careers", "Contact Us"] },
-  { title: "SERVICES", links: ["Audit & Assurance", "Tax Advisory", "GST & Indirect Tax", "Corporate Finance", "Virtual CFO"] },
+  { title: "SERVICES", links: ["Audit & Assurance", "Tax Advisory", "GST & Indirect Tax", "Virtual CFO", "Explore all services"] },
   { title: "RESOURCES", links: ["Insights", "Compliance calendar", "FAQs"] },
 ];
 

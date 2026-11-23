@@ -276,3 +276,41 @@ html { scroll-padding-top: 96px; }
 @keyframes item-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 .menu-sheet { animation: sheet-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .menu-item { animation: item-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ───────── Reviews marquee (motion is driven by marquee.tsx) ───────── */
+.marquee {
+  overflow: hidden;
+  padding-block: 12px 28px; /* room for card hover-lift + shadow */
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y; /* swipe sideways to drag, vertical swipes still scroll the page */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee[data-dragging] { cursor: grabbing; }
+.marquee:focus-visible { outline: 2px solid var(--color-gold); outline-offset: -2px; }
+.marquee-track { display: flex; width: max-content; will-change: transform; }
+.marquee-group {
+  display: flex;
+  gap: 24px;
+  padding-right: 24px; /* equals the gap so the loop seam is invisible */
+  margin: 0;
+  list-style: none;
+}
+.marquee .card { cursor: inherit; }
+.marquee-btn {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  background: #fff;
+  color: var(--color-navy);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.marquee-btn:hover { background: var(--color-navy); color: var(--color-gold-light); transform: translateY(-1px); }
+.marquee-btn:active { transform: scale(0.95); }

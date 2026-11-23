@@ -2,7 +2,9 @@ import { About } from "./_components/about";
 import { Contact, Footer } from "./_components/contact-footer";
 import { Header } from "./_components/header";
 import { Hero } from "./_components/hero";
-import { Process, Testimonial } from "./_components/process";
+import { Pillars, Credentials } from "./_components/pillars";
+import { Process } from "./_components/process";
+import { CtaBand, Reviews } from "./_components/reviews";
 import { Resources } from "./_components/resources";
 import { ScrollEffects } from "./_components/scroll-effects";
 import { Services } from "./_components/services";
@@ -15,12 +17,15 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Credentials />
         <About />
         <Services />
+        <Pillars />
         <Process />
-        <Testimonial />
+        <Reviews />
         <Resources />
         <Contact />
+        <CtaBand />
       </main>
       <Footer />
     </div>
