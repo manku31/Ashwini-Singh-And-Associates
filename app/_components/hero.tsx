@@ -48,7 +48,7 @@ export function Hero() {
           <div className="hero-img mx-auto w-full max-w-[560px] lg:col-span-6 lg:max-w-none">
             <Image
               src="/images/founder-hero-new.jpg"
-              alt="CA Aswani Singh, founder, in a tailored dark blazer in a sunlit office"
+              alt="CA Ashwini Singh, founder, in a tailored dark blazer in a sunlit office"
               width={968}
               height={1156}
               priority

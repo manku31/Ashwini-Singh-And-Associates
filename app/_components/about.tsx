@@ -10,7 +10,7 @@ export function About() {
           <div className="absolute inset-0 overflow-hidden rounded bg-[#d5c8b1] shadow-[0_30px_60px_-34px_rgba(15,23,42,0.45)]">
             <Image
               src="/images/founder-speaking.jpg"
-              alt="CA Aswani Singh addressing a professional gathering"
+              alt="CA Ashwini Singh addressing a professional gathering"
               fill
               sizes="(min-width: 1024px) 560px, 90vw"
               className="object-cover object-[40%_50%]"
@@ -28,7 +28,7 @@ export function About() {
           <p className="eyebrow mb-6">About the firm</p>
           <h2 className="h2">A partner-led practice built on diligence</h2>
           <p className="mt-7 text-lg leading-[1.7] text-slate-body">
-            Aswani Singh &amp; Associates brings big-firm rigour with the attention of a boutique practice. Every engagement is led personally by our founder, so you work directly with the person accountable for your numbers.
+            Ashwini Singh and Associates brings big-firm rigour with the attention of a boutique practice. Every engagement is led personally by our founder, so you work directly with the person accountable for your numbers.
           </p>
           <p className="mt-4 text-lg leading-[1.7] text-slate-body">
             From first-time founders to established enterprises, we help clients stay compliant, make sound financial decisions and grow with confidence.
@@ -36,14 +36,14 @@ export function About() {
           <div className="mt-9 flex items-center gap-5 border-y border-navy/10 py-5">
             <Image
               src="/images/founder-portrait.jpg"
-              alt="Portrait of CA Aswani Singh"
+              alt="Portrait of CA Ashwini Singh"
               width={64}
               height={64}
               className="h-16 w-16 rounded-full border border-gold/50 object-cover object-[50%_25%]"
             />
-            <span className="font-serif text-3xl font-medium italic">Aswani Singh</span>
+            <span className="font-serif text-3xl font-medium italic">Ashwini Singh</span>
             <span className="flex flex-col gap-1">
-              <span className="text-sm font-bold">CA Aswani Singh, Founder</span>
+              <span className="text-sm font-bold">CA Ashwini Singh, Founder</span>
               <span className="text-[13px] text-slate-body">[Credentials — e.g. FCA, DISA (ICAI)]</span>
             </span>
           </div>

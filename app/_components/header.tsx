@@ -1,17 +1,21 @@
+import Image from "next/image";
 import { nav } from "../data";
 
 export function Logo({ dark = false }: { dark?: boolean }) {
   return (
-    <span className="flex items-center gap-4" aria-hidden="true">
-      <span
-        className={`font-serif text-[44px] font-medium leading-none tracking-[-0.05em] ${dark ? "text-gold-light" : "text-gold"}`}
-      >
-        AS
+    <span className="group flex items-center gap-3.5" aria-hidden="true">
+      {/* ICAI "CA India" mark */}
+      <span className={`flex shrink-0 items-center transition-transform duration-300 group-hover:scale-105 ${dark ? "rounded-md bg-white px-2 py-1.5" : ""}`}>
+        <Image src="/images/icai-logo.png" alt="" width={64} height={48} className="h-12 w-auto" priority />
       </span>
-      <span className={`h-10 w-px ${dark ? "bg-gold-light/60" : "bg-gold/70"}`} />
-      <span className={`flex flex-col text-[17px] font-bold leading-[1.15] tracking-[0.06em] ${dark ? "text-white" : "text-navy"}`}>
-        <span>ASWANI SINGH</span>
-        <span>&amp; ASSOCIATES</span>
+      {/* bold name + spaced gold descriptor */}
+      <span className="flex flex-col leading-tight">
+        <span className={`text-[17px] font-bold tracking-tight sm:text-xl ${dark ? "text-white" : "text-navy"}`}>
+          Ashwini Singh and Associates
+        </span>
+        <span className={`mt-1 text-[11px] font-medium uppercase tracking-[0.28em] ${dark ? "text-gold-light" : "text-gold-ink"}`}>
+          Chartered Accountants
+        </span>
       </span>
     </span>
   );
@@ -21,7 +25,7 @@ export function Header() {
   return (
     <header id="site-header" className="sticky top-0 z-40 border-b border-navy/10 bg-cream/95 backdrop-blur">
       <div className="wrap flex h-[88px] items-center justify-between gap-6">
-        <a href="#top" aria-label="Aswani Singh & Associates — home">
+        <a href="#top" aria-label="Ashwini Singh and Associates — home">
           <Logo />
         </a>
 

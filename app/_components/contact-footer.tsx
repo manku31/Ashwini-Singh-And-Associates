@@ -89,7 +89,7 @@ export function Footer() {
           ))}
         </div>
         <div className="flex flex-wrap justify-between gap-x-10 gap-y-4 pt-8 text-[13px] leading-relaxed text-white/70">
-          <span>© 2026 Aswani Singh &amp; Associates, Chartered Accountants. [Firm Registration No.]</span>
+          <span>© 2026 Ashwini Singh and Associates, Chartered Accountants. [Firm Registration No.]</span>
           <span className="max-w-[640px]">
             Disclaimer: In line with ICAI guidelines, this website provides information only and does not solicit work or advertise services.
           </span>

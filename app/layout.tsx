@@ -16,7 +16,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Aswani Singh & Associates | Chartered Accountants — Audit, Tax & Advisory",
+  title: "Ashwini Singh and Associates | Chartered Accountants — Audit, Tax & Advisory",
   description:
     "Expert Chartered Accountancy, Audit, Tax and Advisory services for startups, MSMEs, corporates, professionals and NRIs.",
 };
