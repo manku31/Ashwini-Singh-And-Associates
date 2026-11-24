@@ -64,7 +64,7 @@ export function Services({ showAll = true, limit }: { showAll?: boolean; limit?:
             ))}
           </div>
           {hidden > 0 && (
-            <ShowMore href="/services" label="Show more services" hint={`${hidden} more ${hidden === 1 ? "service" : "services"} — Virtual CFO, GST, company law and more`} />
+            <ShowMore href="/services" label="Show more services" />
           )}
         </div>
       </section>
@@ -84,7 +84,7 @@ export function WhyUs({ limit }: { limit?: number }) {
             The reasons clients stay for years
           </h2>
           <p className="mt-6 text-[17px] leading-relaxed text-slate-body">
-            Traditional CA rigour, combined with modern responsiveness.
+            The speed of a modern firm, the scrutiny of a traditional practice.
           </p>
         </div>
         <ul data-stagger className="grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">

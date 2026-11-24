@@ -1,19 +1,5 @@
-import { credentials, pillars } from "../data";
+import { pillars } from "../data";
 import { ShowMore } from "./show-more";
-
-export function Credentials() {
-  return (
-    <section aria-label="Credentials" className="border-b border-navy/10 bg-white">
-      <ul data-stagger className="wrap flex flex-wrap items-center justify-center gap-3 py-8">
-        {credentials.map((c) => (
-          <li key={c} className="rounded-full border border-gold/50 bg-cream px-4 py-2 text-[13px] font-medium text-gold-ink">
-            {c}
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
 
 export function Pillars({ limit }: { limit?: number }) {
   const shown = limit ? pillars.slice(0, limit) : pillars;
@@ -48,7 +34,7 @@ export function Pillars({ limit }: { limit?: number }) {
         ))}
       </ol>
       {limit && limit < pillars.length && (
-        <ShowMore href="/services#virtual-cfo" label="Show more Virtual CFO services" hint={`${pillars.length - limit} more areas we cover`} />
+        <ShowMore href="/services#virtual-cfo" label="Show more Virtual CFO services" />
       )}
     </section>
   );

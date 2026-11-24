@@ -56,11 +56,12 @@ export function Hero() {
               sizes="(min-width: 1024px) 600px, 90vw"
               className="h-auto w-full"
             />
-            <p className="float-badge absolute bottom-4 left-4 flex items-center gap-2.5 rounded-full border border-navy/10 bg-white/90 py-2 pl-3.5 pr-4 text-sm text-navy shadow-sm backdrop-blur sm:bottom-8 sm:left-8">
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-gold" />
-              <span className="font-semibold">CA Ashwini Singh</span>
-              <span className="text-slate-body">Founder</span>
-            </p>
+            <div className="float-badge absolute bottom-4 left-4 overflow-hidden rounded-lg border border-white/20 bg-navy/90 py-3 pl-5 pr-6 text-white shadow-[0_18px_40px_-18px_rgba(15,23,42,0.7)] backdrop-blur sm:bottom-8 sm:left-8">
+              <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1 bg-gold" />
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold-light">Founder</p>
+              <p className="mt-1 font-serif text-lg font-medium leading-tight sm:text-xl">Ashwini Santosh Singh</p>
+              <p className="mt-1 text-xs tracking-wide text-white/75">ACP · LLB · B.Com</p>
+            </div>
           </div>
         </div>
       </section>

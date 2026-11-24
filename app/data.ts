@@ -7,12 +7,12 @@ export const nav = [
 ];
 
 export const stats = [
-  { value: "15", suffix: "+", label: "Years of Trust" },
+  { value: "8", suffix: "+", label: "Years of Trust" },
   { value: "500", suffix: "+", label: "Clients Served" },
   { value: "99", suffix: "%", label: "Client Retention" },
 ];
 
-export const clientele = ["Startups", "MSMEs", "Corporates", "Professionals", "NRIs", "Trusts & NGOs"];
+export const clientele = ["Startups", "MSMEs", "Corporates", "Professionals", "NRIs", "Builder & NGOs"];
 
 export const values = [
   { n: "01", title: "Integrity first", text: "Independent, ethical advice, always within ICAI standards." },
@@ -28,7 +28,7 @@ export const services: { slug: string; icon: IconName; title: string; text: stri
     slug: "audit-assurance",
     title: "Audit & Assurance",
     text: "Independent audits that give lenders, investors and regulators confidence in your numbers.",
-    points: ["Statutory & internal audit", "Tax audit (Sec. 44AB)", "Stock & concurrent audit"],
+    points: ["Statutory & internal audit", "Tax audit (Sec. 44AB)", "Stock audit"],
   },
   {
     icon: "tax",
@@ -118,15 +118,6 @@ export const pillars = [
   { title: "Cost Control & Profitability", text: "Find the margin you are leaving on the table.", points: ["Cost-structure analysis", "Expense optimisation", "Pricing-strategy advice"] },
 ];
 
-/* Placeholders — replace with the firm's real credentials. Nothing here is borrowed from another practice. */
-export const credentials = [
-  "[Qualification — e.g. Chartered Accountant, ICAI]",
-  "[Years of experience]",
-  "[Recognition or award]",
-  "[Additional certification]",
-  "[Languages spoken]",
-];
-
 /**
  * SAMPLE reviews — fictional names and original text, here only to fill the layout.
  * Replace with real, permission-cleared client reviews before launch, then set SHOW_SAMPLE_LABEL to false.
@@ -146,8 +137,8 @@ export const reviews = [
 export const serviceDetails: Record<string, { intro: string; includes: string[]; whoFor: string[] }> = {
   "audit-assurance": {
     intro: "An independent audit gives lenders, investors and regulators confidence in your financial statements — and gives you a clear view of where your controls are strong and where they are not.",
-    includes: ["Statutory audit of companies and LLPs", "Tax audit under Section 44AB", "Internal audit and process reviews", "Stock and concurrent audits for banks", "Audit of trusts, societies and NGOs", "Management letters with practical recommendations"],
-    whoFor: ["Companies & LLPs", "Businesses above audit thresholds", "Borrowers needing bank audits", "Trusts & NGOs"],
+    includes: ["Statutory audit of companies and LLPs", "Tax audit under Section 44AB", "Internal audit and process reviews", "Stock audits", "Transfer pricing audit report under Section 92E", "Management letters with practical recommendations"],
+    whoFor: ["Companies & LLPs", "Businesses above audit thresholds", "Borrowers needing bank audits", "Builder & NGOs"],
   },
   "tax-advisory": {
     intro: "Good tax planning is done before the year ends, not after. We help individuals and businesses file accurately, choose the right structure and respond calmly when a notice arrives.",
@@ -175,3 +166,15 @@ export const serviceDetails: Record<string, { intro: string; includes: string[];
     whoFor: ["Founders & SMEs", "Scaling startups", "Owner-managed businesses", "Companies preparing to raise funds"],
   },
 };
+
+/* Placeholders — replace with real photos and roles. Set `photo` to a /images/... path once available. */
+export const team: { name: string; role: string; photo?: string }[] = [
+  { name: "Santosh Singh", role: "[Role / designation]" },
+  { name: "Lalan Singh", role: "[Role / designation]" },
+  { name: "Prashant Singh", role: "[Role / designation]" },
+  { name: "Anu Singh", role: "[Role / designation]" },
+  { name: "Team Member 5", role: "[Role / designation]" },
+  { name: "Team Member 6", role: "[Role / designation]" },
+  { name: "Team Member 7", role: "[Role / designation]" },
+  { name: "Team Member 8", role: "[Role / designation]" },
+];
