@@ -138,7 +138,7 @@ export const serviceDetails: Record<string, { intro: string; includes: string[];
   "audit-assurance": {
     intro: "An independent audit gives lenders, investors and regulators confidence in your financial statements — and gives you a clear view of where your controls are strong and where they are not.",
     includes: ["Statutory audit of companies and LLPs", "Tax audit under Section 44AB", "Internal audit and process reviews", "Stock audits", "Transfer pricing audit report under Section 92E", "Management letters with practical recommendations"],
-    whoFor: ["Companies & LLPs", "Businesses above audit thresholds", "Borrowers needing bank audits", "Builder & NGOs"],
+    whoFor: ["Companies & LLPs", "Businesses above audit thresholds", "Borrowers needing bank audits", "Companies with international transactions"],
   },
   "tax-advisory": {
     intro: "Good tax planning is done before the year ends, not after. We help individuals and businesses file accurately, choose the right structure and respond calmly when a notice arrives.",

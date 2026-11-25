@@ -48,10 +48,10 @@ export function Hero() {
           {/* Pre-composed hero visual (photo + gold/navy shapes baked into the image) */}
           <div className="hero-img relative mx-auto w-full max-w-[560px] lg:col-span-6 lg:max-w-none">
             <Image
-              src="/images/founder-hero-new.jpg"
+              src="/images/founder-hero-3.jpg"
               alt="CA Ashwini Singh, founder, in a tailored dark blazer in a sunlit office"
-              width={968}
-              height={1156}
+              width={1208}
+              height={1302}
               priority
               sizes="(min-width: 1024px) 600px, 90vw"
               className="h-auto w-full"
