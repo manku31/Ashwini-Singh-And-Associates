@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { PageHero } from "../../_components/page-hero";
 import { CtaBand } from "../../_components/reviews";
 import { blogPosts } from "../data";
+import { ArticleImages } from "../article-images";
 import { ArticleToc } from "../article-toc";
 import { ShareButtons } from "../share-buttons";
 
@@ -18,7 +19,26 @@ export async function generateMetadata({
 }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const p = blogPosts.find((x) => x.slug === slug);
-  return p ? { title: p.title, description: p.excerpt } : {};
+  if (!p) return {};
+  return {
+    title: p.title,
+    description: p.excerpt,
+    alternates: { canonical: `/blog/${p.slug}` },
+    openGraph: {
+      type: "article",
+      title: p.title,
+      description: p.excerpt,
+      url: `/blog/${p.slug}`,
+      publishedTime: p.date,
+      authors: [p.author],
+      section: p.category,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: p.title,
+      description: p.excerpt,
+    },
+  };
 }
 
 const slugify = (h: string) =>
@@ -145,6 +165,9 @@ async function PostContent({ params }: { params: Params }) {
                     {t}
                   </p>
                 ))}
+                {s.images && s.images.length > 0 && (
+                  <ArticleImages images={s.images} />
+                )}
                 {s.points && (
                   <ul className="mt-6 flex flex-col gap-3 rounded-xl bg-sand p-6">
                     {s.points.map((pt) => (

@@ -19,8 +19,21 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  // Set NEXT_PUBLIC_SITE_URL to the real domain so share cards use absolute URLs.
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : "http://localhost:3000"),
+  ),
+  openGraph: {
+    siteName: "Ashwini Singh and Associates",
+    type: "website",
+    locale: "en_IN",
+  },
   title: {
-    default: "Ashwini Singh and Associates | Chartered Accountants — Audit, Tax & Advisory",
+    default:
+      "Ashwini Singh and Associates | Chartered Accountants — Audit, Tax & Advisory",
     template: "%s | Ashwini Singh and Associates",
   },
   description:
@@ -29,7 +42,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${playfair.variable} ${jakarta.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${playfair.variable} ${jakarta.variable} antialiased`}
+    >
       <body className="min-h-screen">
         <div className="overflow-x-clip">
           <div id="scroll-progress" aria-hidden="true" />

@@ -7,7 +7,12 @@ export type BlogPost = {
   readTime: string;
   image: string;
   author: string;
-  sections: { heading: string; paragraphs: string[]; points?: string[] }[];
+  sections: {
+    heading: string;
+    paragraphs: string[];
+    points?: string[];
+    images?: { src: string; alt: string; caption?: string }[];
+  }[];
 };
 
 // Dummy posts — replace with real articles later.
@@ -25,12 +30,32 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         heading: "Don't panic — read the notice first",
+        images: [
+          {
+            src: "/images/blog/gst-portal.svg",
+            alt: "GST portal notice screen",
+            caption:
+              "Notices appear under the Services › User Services › View Notices tab.",
+          },
+        ],
         paragraphs: [
           "A GST notice is a request for information or an explanation, not an automatic penalty. Start by identifying the notice type, the section it cites and the reply deadline printed on it.",
         ],
       },
       {
         heading: "Gather the right documents",
+        images: [
+          {
+            src: "/images/blog/gst-reconcile.svg",
+            alt: "GSTR reconciliation",
+            caption: "Reconcile GSTR-1 against GSTR-3B.",
+          },
+          {
+            src: "/images/blog/gst-documents.svg",
+            alt: "Supporting documents",
+            caption: "Keep supporting documents ready.",
+          },
+        ],
         paragraphs: [
           "Most notices relate to mismatches between returns. Reconcile GSTR-1, GSTR-3B and GSTR-2B for the period in question before drafting a reply.",
         ],
@@ -67,6 +92,23 @@ export const blogPosts: BlogPost[] = [
       },
       {
         heading: "When the old regime wins",
+        images: [
+          {
+            src: "/images/blog/regime-chart.svg",
+            alt: "Slab comparison",
+            caption: "Slab comparison",
+          },
+          {
+            src: "/images/blog/regime-calc.svg",
+            alt: "Tax calculation",
+            caption: "Worked example",
+          },
+          {
+            src: "/images/blog/gst-documents.svg",
+            alt: "Deduction proofs",
+            caption: "Deduction proofs",
+          },
+        ],
         paragraphs: [
           "If you claim substantial deductions, the old regime often results in lower tax.",
         ],
