@@ -17,7 +17,6 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Who we are"
         title="A practice built on diligence and trust"
-        text="Partner-led Chartered Accountants helping families and businesses stay compliant, make sound decisions and grow with confidence."
         crumbs={[{ label: "About Us" }]}
       />
       <About showMore={false} />

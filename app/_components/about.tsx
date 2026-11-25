@@ -10,7 +10,7 @@ export function About({ showMore = true }: { showMore?: boolean }) {
         <div data-reveal className="relative h-[400px] sm:h-[480px] lg:sticky lg:top-28 lg:col-span-5 lg:h-[640px]">
           <div aria-hidden="true" className="absolute -left-4 -top-4 h-[70%] w-[70%] rounded-sm border border-gold/50 lg:-left-6 lg:-top-6" />
           <AboutCarousel />
-          <div className="absolute -bottom-6 right-4 w-[190px] rounded-md bg-navy p-5 sm:w-[220px] sm:p-6 text-white shadow-[0_24px_48px_-24px_rgba(15,23,42,0.6)] lg:-right-10 lg:bottom-12">
+          <div className="absolute -bottom-6 right-4 z-10 w-[190px] rounded-md bg-navy p-5 sm:w-[220px] sm:p-6 text-white shadow-[0_24px_48px_-24px_rgba(15,23,42,0.6)] lg:-right-10 lg:bottom-12">
             <span className="block font-serif text-[44px] font-medium leading-none text-gold-light">
               8<span className="italic">+</span>
             </span>
@@ -22,10 +22,10 @@ export function About({ showMore = true }: { showMore?: boolean }) {
           <p className="eyebrow mb-6">About the firm</p>
           <h2 className="h2 !text-[clamp(28px,3.2vw,40px)] !leading-[1.15]">A modern CA firm with today&rsquo;s technology and timeless precision</h2>
           <p className="mt-6 text-base leading-[1.75] text-slate-body sm:text-[17px]">
-            Since 2019, Ashwini Singh And Associates, is an ICAI-registered Chartered Accountancy practice founded on the belief that compliance should be a strategic advantage, not a last-minute scramble. Led by proprietor CA Ashwini Santosh Singh, the firm started with a handful of Thane businesses and a simple promise: never miss a deadline, never overcharge, and always explain the &lsquo;why&rsquo;.
+            Since 2019, Ashwini Singh And Associates, is an ICAI-registered Chartered Accountancy practice founded on the belief that compliance should be a strategic advantage, not a last-minute scramble. Led by proprietor CA Ashwini Santosh Singh, the firm started with a handful of businesses and a simple promise: never miss a deadline, never overcharge, and always explain the &lsquo;why&rsquo;.
           </p>
           <p className="mt-4 text-base leading-[1.75] text-slate-body sm:text-[17px]">
-            Eight years on, that promise still runs the firm. We now serve over 500 clients from first-time founders registering their private limited company to established SMEs, foreign company subsidiaries and NRIs managing Indian income from abroad.
+            Eight years on, that promise still runs the firm. We now serve over 500 clients across India, from first-time founders registering their private limited company to established SMEs, foreign company subsidiaries and NRIs managing Indian income from abroad.
           </p>
           <p className="mt-4 text-base leading-[1.75] text-slate-body sm:text-[17px]">
             What has not changed is who does the work. Every return, audit and advisory note is owned by a qualified Chartered Accountant. We invest in technology to remove drudgery, but judgement &mdash; the part that actually protects you &mdash; stays firmly human.
