@@ -3,6 +3,7 @@ import { createHash, createHmac, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import { connection } from "next/server";
 import { redirect } from "next/navigation";
+import { cache } from "react";
 
 const COOKIE = "admin_session";
 const MAX_AGE = 60 * 60 * 8; // 8 hours
@@ -99,10 +100,11 @@ export async function getAdmin(): Promise<string | null> {
 }
 
 /** Authorization gate: call at the top of every admin page, action and admin data read. */
-export async function requireAdmin(): Promise<string> {
+// cache(): the layout, page and each data read all call this; verify once per request.
+export const requireAdmin = cache(async (): Promise<string> => {
   const email = await getAdmin();
   if (!email) redirect("/admin/login");
   return email;
-}
+});
 
 export const SESSION_COOKIE = COOKIE;
