@@ -5,10 +5,13 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { PageHero } from "../../_components/page-hero";
 import { CtaBand } from "../../_components/reviews";
+import { IMG_TOKEN, placedImages } from "@/lib/blog-content";
+import { getAllPosts } from "@/lib/posts";
 import { blogPosts } from "../data";
 import { ArticleImages } from "../article-images";
 import { ArticleToc } from "../article-toc";
 import { ShareButtons } from "../share-buttons";
+import { ViewTracker } from "../view-tracker";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -18,7 +21,7 @@ export async function generateMetadata({
   params,
 }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const p = blogPosts.find((x) => x.slug === slug);
+  const p = (await getAllPosts()).find((x) => x.slug === slug);
   if (!p) return {};
   return {
     title: p.title,
@@ -68,13 +71,16 @@ export default function BlogPostPage({ params }: PageProps<"/blog/[slug]">) {
 
 async function PostContent({ params }: { params: Params }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const posts = await getAllPosts();
+  const post = posts.find((p) => p.slug === slug);
   if (!post) notFound();
 
-  const idx = blogPosts.findIndex((p) => p.slug === slug);
-  const prev = blogPosts[idx - 1];
-  const next = blogPosts[idx + 1];
-  const more = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
+  const idx = posts.findIndex((p) => p.slug === slug);
+  const prev = posts[idx - 1];
+  const next = posts[idx + 1];
+  const more = posts.filter((p) => p.slug !== slug).slice(0, 3);
+  const placed = placedImages(post.sections);
+  const unplaced = (post.gallery ?? []).filter((src) => !placed.has(src));
   const toc = post.sections.map((s) => ({
     id: slugify(s.heading),
     label: s.heading,
@@ -87,6 +93,7 @@ async function PostContent({ params }: { params: Params }) {
 
   return (
     <>
+      <ViewTracker slug={post.slug} />
       <PageHero
         eyebrow={post.category}
         title={post.title}
@@ -140,6 +147,12 @@ async function PostContent({ params }: { params: Params }) {
               {post.excerpt}
             </p>
 
+            {unplaced.length > 0 && (
+              <ArticleImages
+                images={unplaced.map((src) => ({ src, alt: post.title }))}
+              />
+            )}
+
             {post.sections.map((s, i) => (
               <section
                 key={s.heading}
@@ -157,14 +170,22 @@ async function PostContent({ params }: { params: Params }) {
                     {s.heading}
                   </h2>
                 </div>
-                {s.paragraphs.map((t) => (
-                  <p
-                    key={t}
-                    className="mt-5 text-[18px] leading-[1.85] text-slate-body"
-                  >
-                    {t}
-                  </p>
-                ))}
+                {s.paragraphs.map((t) => {
+                  const img = IMG_TOKEN.exec(t)?.[1];
+                  return img ? (
+                    <ArticleImages
+                      key={t}
+                      images={[{ src: img, alt: post.title }]}
+                    />
+                  ) : (
+                    <p
+                      key={t}
+                      className="mt-5 text-[18px] leading-[1.85] text-slate-body"
+                    >
+                      {t}
+                    </p>
+                  );
+                })}
                 {s.images && s.images.length > 0 && (
                   <ArticleImages images={s.images} />
                 )}

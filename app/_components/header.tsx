@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
+import { getAdmin } from "@/lib/session";
 import { MobileMenu } from "./mobile-menu";
 import { NavLinks } from "./nav-links";
 
@@ -23,6 +25,22 @@ export function Logo({ dark = false }: { dark?: boolean }) {
   );
 }
 
+async function AdminLink() {
+  if (!(await getAdmin())) return null;
+  return (
+    <Link
+      href="/admin"
+      className="inline-flex h-10 items-center gap-2 rounded-full border border-gold bg-white px-4 text-sm font-semibold text-gold-ink hover:bg-sand"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6l-8-3Z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+      Admin
+    </Link>
+  );
+}
+
 export function Header() {
   return (
     <header id="site-header" className="sticky top-0 z-40 border-b border-navy/10 bg-cream/95 backdrop-blur">
@@ -33,6 +51,11 @@ export function Header() {
 
         <NavLinks />
 
+        <div className="flex shrink-0 items-center gap-3">
+        <Suspense fallback={null}>
+          <AdminLink />
+        </Suspense>
+
         {/* desktop-only: the wrapper (not the button) is what hides it on mobile */}
         <div className="hidden shrink-0 xl:block">
           <Link href="/contact" className="btn btn-gold !h-[44px] !px-[20px] !text-sm whitespace-nowrap">
@@ -41,6 +64,7 @@ export function Header() {
         </div>
 
         <MobileMenu />
+        </div>
       </div>
     </header>
   );

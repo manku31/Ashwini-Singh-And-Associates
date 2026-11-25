@@ -5,7 +5,8 @@ export type BlogPost = {
   category: string;
   date: string;
   readTime: string;
-  image: string;
+  image: string; // cover (first image)
+  gallery?: string[]; // up to 2 extra images shown in the article
   author: string;
   sections: {
     heading: string;

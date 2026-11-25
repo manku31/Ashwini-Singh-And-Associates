@@ -1,0 +1,59 @@
+[
+  {
+    "name": "Arun",
+    "phone": "7979797979",
+    "email": "abc@xyz.com",
+    "service": "Other: zxn ldhjxbf lvjsdb vsd s",
+    "message": "vjhbaeubhvlsebvijev \r\nav jsb dfvbsdlifv sae\r\nakrvnsljidbfvljbsde;fv\r\nfv sdkfbnsjdblvsea",
+    "id": "602cf2b7-8f56-40d5-acd7-80ad6275fadf",
+    "createdAt": "2026-11-25T20:42:04.249Z",
+    "status": "reached"
+  },
+  {
+    "name": "Nishant Gawade",
+    "phone": "07977007426",
+    "email": "ngawade.extern@europ-assistance.in",
+    "service": "Audit & Assurance",
+    "message": "z f. fdx f x",
+    "id": "bfcf2ea3-bb6d-4f44-97fc-9f251387314c",
+    "createdAt": "2026-11-25T20:30:39.846Z",
+    "status": "pending",
+    "remarks": [
+      {
+        "id": "e4f58520-8e61-4061-b98d-e7364d8aa903",
+        "text": "test 4",
+        "createdAt": "2026-11-25T21:06:15.877Z"
+      },
+      {
+        "id": "1d911af1-e8b0-4c35-a2f6-bb5c1e5fb784",
+        "text": "test 4",
+        "createdAt": "2026-11-25T20:36:12.606Z"
+      },
+      {
+        "id": "1a34e21c-1031-473c-91a1-cf65df2ffa0e",
+        "text": "test3",
+        "createdAt": "2026-11-25T20:36:08.588Z"
+      },
+      {
+        "id": "50398a24-d25d-450b-b647-b77ade64b599",
+        "text": "test2",
+        "createdAt": "2026-11-25T20:35:57.272Z"
+      },
+      {
+        "id": "a88cb0f3-bc5a-49af-8a94-af3601929ac5",
+        "text": "test 1",
+        "createdAt": "2026-11-25T20:35:50.491Z"
+      }
+    ]
+  },
+  {
+    "name": "Prashant Singh",
+    "phone": "7977007426",
+    "email": "prashantdineshsingh48@gmail.com",
+    "service": "Audit & Assurance",
+    "message": "test",
+    "id": "980558ce-4698-4533-bf84-36b68f80ce5a",
+    "createdAt": "2026-11-25T20:19:05.030Z",
+    "status": "pending"
+  }
+]

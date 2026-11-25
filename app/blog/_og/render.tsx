@@ -1,10 +1,10 @@
 import { ImageResponse } from "next/og";
-import { blogPosts } from "../data";
+import { getAllPosts } from "@/lib/posts";
 
 export const ogSize = { width: 1200, height: 630 };
 
-export function renderBlogCard(slug: string) {
-  const post = blogPosts.find((p) => p.slug === slug);
+export async function renderBlogCard(slug: string) {
+  const post = (await getAllPosts()).find((p) => p.slug === slug);
   const title = post?.title ?? "Blog";
   const category = (post?.category ?? "Article").toUpperCase();
   const meta = post ? `${post.author} · ${post.readTime}` : "";

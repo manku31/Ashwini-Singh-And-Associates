@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
+import { submitContact } from "../actions";
 
 const serviceOptions = [
   "Audit & Assurance",
@@ -15,6 +16,8 @@ const serviceOptions = [
 export function ContactForm() {
   const [sent, setSent] = useState(false);
   const [service, setService] = useState(serviceOptions[0]);
+  const [error, setError] = useState("");
+  const [pending, startTransition] = useTransition();
 
   if (sent) {
     return (
@@ -49,9 +52,18 @@ export function ContactForm() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        // TODO: wire to an API route / email service.
-        e.currentTarget.reset();
-        setSent(true);
+        const form = e.currentTarget;
+        const data = new FormData(form);
+        setError("");
+        startTransition(async () => {
+          const res = await submitContact(data);
+          if (res.ok) {
+            form.reset();
+            setSent(true);
+          } else {
+            setError(res.error);
+          }
+        });
       }}
       className="grid gap-x-5 gap-y-[22px] rounded-xl border border-navy/10 bg-white p-5 shadow-[0_30px_60px_-40px_rgba(15,23,42,0.35)] sm:grid-cols-2 sm:p-12"
     >
@@ -93,8 +105,13 @@ export function ContactForm() {
           I agree to be contacted about my enquiry. Your details stay confidential.
         </label>
       </div>
-      <button type="submit" className="btn btn-dark h-14 cursor-pointer sm:col-span-2">
-        Request a Consultation
+      {error && (
+        <p role="alert" className="text-sm font-semibold text-red-700 sm:col-span-2">
+          {error}
+        </p>
+      )}
+      <button type="submit" disabled={pending} className="btn btn-dark h-14 cursor-pointer disabled:opacity-60 sm:col-span-2">
+        {pending ? "Sending…" : "Request a Consultation"}
       </button>
     </form>
   );
