@@ -82,7 +82,7 @@ export function CtaBand() {
           </p>
           <div className="mt-9 flex flex-col gap-3.5 sm:flex-row">
             <Link href="/contact" className="btn btn-gold w-full sm:w-auto">Schedule a Consultation</Link>
-            <a href="tel:+910000000000" className="btn btn-outline-light w-full sm:w-auto">Call [+91 XXXXX XXXXX]</a>
+            <a href="tel:+919022110077" className="btn btn-outline-light w-full sm:w-auto">Call +91 90221 10077</a>
           </div>
         </div>
         <div data-reveal className="flex flex-col justify-center rounded-xl border border-white/15 bg-white/5 p-7 sm:p-9">

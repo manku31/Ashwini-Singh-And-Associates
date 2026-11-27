@@ -69,7 +69,6 @@ export function ContactForm() {
     >
       <div className="flex flex-col gap-1.5 sm:col-span-2">
         <span className="text-[22px] font-bold">Request a callback</span>
-        <span className="text-sm text-slate-body">All fields marked * are required.</span>
       </div>
       <Field id="f-name" label="Full name *">
         <input id="f-name" name="name" required className="field" type="text" placeholder="Your name" autoComplete="name" />
@@ -98,12 +97,6 @@ export function ContactForm() {
         <Field id="f-msg" label="How can we help?">
           <textarea id="f-msg" name="message" rows={4} className="field !h-32 resize-y !py-3.5" placeholder="A few lines about your requirement" />
         </Field>
-      </div>
-      <div className="flex items-start gap-2.5 sm:col-span-2">
-        <input id="f-ok" name="consent" required type="checkbox" className="mt-0.5 h-[18px] w-[18px] accent-navy" />
-        <label htmlFor="f-ok" className="text-[13px] leading-normal text-slate-body">
-          I agree to be contacted about my enquiry. Your details stay confidential.
-        </label>
       </div>
       {error && (
         <p role="alert" className="text-sm font-semibold text-red-700 sm:col-span-2">

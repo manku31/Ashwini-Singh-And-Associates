@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ContactRequest {
+  id        String   @id @default(uuid())
+  name      String
+  phone     String
+  email     String
+  service   String
+  message   String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  remarks   Remark[]
+
+  @@index([createdAt])
+}
+
+model Remark {
+  id        String         @id @default(uuid())
+  text      String
+  createdAt DateTime       @default(now())
+  requestId String
+  request   ContactRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+
+  @@index([requestId])
+}
+
+model Subscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model View {
+  slug  String @id
+  count Int    @default(0)
+}

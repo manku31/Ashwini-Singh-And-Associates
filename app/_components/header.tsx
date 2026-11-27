@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { getAdmin } from "@/lib/session";
+import { HomeLink } from "./home-link";
 import { MobileMenu } from "./mobile-menu";
 import { NavLinks } from "./nav-links";
 
@@ -45,9 +46,9 @@ export function Header() {
   return (
     <header id="site-header" className="sticky top-0 z-40 border-b border-navy/10 bg-cream/95 backdrop-blur">
       <div className="wrap flex h-[68px] items-center justify-between gap-3 sm:h-[76px] sm:gap-6">
-        <Link href="/" aria-label="Ashwini Singh and Associates — home" className="min-w-0">
+        <HomeLink aria-label="Ashwini Singh and Associates — home" className="min-w-0">
           <Logo />
-        </Link>
+        </HomeLink>
 
         <NavLinks />
 

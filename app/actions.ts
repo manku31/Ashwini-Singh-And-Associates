@@ -1,8 +1,8 @@
 "use server";
 
 import { getAdmin } from "@/lib/session";
-import { mergePosts } from "@/lib/posts";
-import { addRequest, addSubscriber, addView, storedHidden, storedPosts } from "@/lib/store";
+import { blogPosts } from "@/app/blog/data";
+import { addRequest, addSubscriber, addView } from "@/lib/store";
 
 export type FormResult = { ok: true } | { ok: false; error: string };
 
@@ -25,7 +25,6 @@ export async function submitContact(fd: FormData): Promise<FormResult> {
     if (!other) return { ok: false, error: "Please tell us which service you need." };
     service = `Other: ${other}`;
   }
-  if (!fd.get("consent")) return { ok: false, error: "Please accept the consent checkbox." };
 
   try {
     await addRequest({ name, phone, email, service, message });
@@ -49,7 +48,6 @@ export async function subscribe(fd: FormData): Promise<FormResult> {
 /** Counts one public view of a live blog post. Admin views are not counted. */
 export async function recordView(slug: string): Promise<void> {
   if (await getAdmin()) return;
-  const live = mergePosts(await storedPosts(), await storedHidden());
-  if (!live.some((p) => p.slug === slug)) return;
+  if (!blogPosts.some((p) => p.slug === slug)) return;
   await addView(slug);
 }

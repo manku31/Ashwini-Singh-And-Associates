@@ -11,9 +11,10 @@ export default async function RequestsPage({ searchParams }: PageProps<"/admin/r
   const { status } = await searchParams;
   const filter = REQUEST_STATUSES.find((s) => s === status) ?? "all";
   const all = await adminRequests();
-  const count = (s: string) => (s === "all" ? all.length : all.filter((r) => r.status === s).length);
-  const rows = all
-    .filter((r) => filter === "all" || r.status === filter)
+  // "All" hides rejected requests; they only appear under the Rejected filter.
+  const active = all.filter((r) => r.status !== "rejected");
+  const count = (s: string) => (s === "all" ? active.length : all.filter((r) => r.status === s).length);
+  const rows = (filter === "all" ? active : all.filter((r) => r.status === filter))
     .map((r) => ({ ...r, created: fmtDateTime(r.createdAt) }));
 
   return (

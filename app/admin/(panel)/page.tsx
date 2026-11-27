@@ -1,21 +1,21 @@
 import Link from "next/link";
-import { adminAllPosts, adminRequests, adminSubscribers } from "@/lib/admin-data";
+import { adminRequests, adminSubscribers } from "@/lib/admin-data";
 import { fmtDateTime } from "@/lib/format";
 
 // Per-request, session-gated admin page: opt out of instant-navigation validation.
 export const instant = false;
 
 export default async function Overview() {
-  const [posts, requests, subscribers] = await Promise.all([adminAllPosts(), adminRequests(), adminSubscribers()]);
+  const [allRequests, subscribers] = await Promise.all([adminRequests(), adminSubscribers()]);
+  const requests = allRequests.filter((r) => r.status !== "rejected"); // rejected ones only show under Requests → Rejected
   const cards = [
-    { href: "/admin/blogs", label: "Live blog posts", n: posts.length },
     { href: "/admin/requests", label: `Callback requests · ${requests.filter((r) => r.status === "pending").length} pending`, n: requests.length },
     { href: "/admin/subscribers", label: "Newsletter subscribers", n: subscribers.length },
   ];
   return (
     <>
       <h1 className="text-[28px] font-bold">Admin overview</h1>
-      <div className="mt-6 grid gap-5 sm:grid-cols-3">
+      <div className="mt-6 grid gap-5 sm:grid-cols-2">
         {cards.map((c) => (
           <Link key={c.href} href={c.href} className="rounded-xl border border-navy/10 bg-white p-6 hover:border-gold">
             <span className="font-serif text-4xl font-semibold">{c.n}</span>

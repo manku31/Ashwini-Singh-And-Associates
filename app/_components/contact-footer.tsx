@@ -7,17 +7,17 @@ const iconProps = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none", s
 const details = [
   {
     label: "OFFICE",
-    value: "[Office address, City, State – PIN]",
+    value: "3, Asha Co.Op. Housing Society, Charai, Thane West, Thane, Maharashtra 400601",
     icon: (<svg {...iconProps}><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" /><circle cx="12" cy="9.5" r="2.5" /></svg>),
   },
   {
     label: "PHONE",
-    value: "[+91 XXXXX XXXXX]",
+    value: "+91 90221 10077",
     icon: (<svg {...iconProps}><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></svg>),
   },
   {
-    label: "EMAIL · HOURS",
-    value: "[hello@yourdomain.in] · [Mon–Sat, office hours]",
+    label: "EMAIL",
+    value: "info@caashwinissingh.com",
     icon: (<svg {...iconProps}><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></svg>),
   },
 ];
@@ -92,7 +92,7 @@ export function Footer() {
           ))}
         </div>
         <div className="flex flex-wrap justify-between gap-x-10 gap-y-4 pt-8 text-[13px] leading-relaxed text-white/70">
-          <span>© 2026 Ashwini Singh and Associates, Chartered Accountants. [Firm Registration No.]</span>
+          <span>© 2026 Ashwini Singh and Associates, Chartered Accountants. Firm Registration No. 15523W.</span>
           <span className="max-w-[640px]">
             Disclaimer: In line with ICAI guidelines, this website provides information only and does not solicit work or advertise services.
           </span>
