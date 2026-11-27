@@ -7,7 +7,7 @@ export async function renderBlogCard(slug: string) {
   const post = (await getAllPosts()).find((p) => p.slug === slug);
   const title = post?.title ?? "Blog";
   const category = (post?.category ?? "Article").toUpperCase();
-  const meta = post ? `${post.author} · ${post.readTime}` : "";
+  const meta = post ? post.author : "";
 
   return new ImageResponse(
     <div

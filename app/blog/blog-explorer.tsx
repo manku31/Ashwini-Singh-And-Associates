@@ -117,8 +117,7 @@ export function BlogExplorer({ posts }: { posts: BlogPost[] }) {
           </div>
           <div className="flex flex-col justify-center gap-4 p-8 sm:p-12">
             <span className="text-xs font-semibold tracking-[0.18em] text-gold-ink">
-              {featured.category.toUpperCase()} ·{" "}
-              {featured.readTime.toUpperCase()}
+              {featured.category.toUpperCase()}
             </span>
             <h2 className="font-serif text-3xl font-bold leading-tight group-hover:text-gold-ink sm:text-4xl">
               {featured.title}
@@ -176,7 +175,7 @@ export function BlogExplorer({ posts }: { posts: BlogPost[] }) {
               </div>
               <div className="flex flex-1 flex-col gap-3 p-6">
                 <p className="text-[13px] text-slate-body">
-                  {fmt(p.date)} · {p.readTime}
+                  {p.author} · {fmt(p.date)}
                 </p>
                 <h2 className="text-[21px] font-bold leading-snug group-hover:text-gold-ink">
                   {p.title}

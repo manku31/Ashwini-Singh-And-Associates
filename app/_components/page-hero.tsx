@@ -9,7 +9,7 @@ export function PageHero({
 }: {
   eyebrow: string;
   title: React.ReactNode;
-  text?: string;
+  text?: React.ReactNode;
   crumbs?: { label: string; href?: string }[];
 }) {
   return (
@@ -26,7 +26,12 @@ export function PageHero({
         </nav>
         <p className="eyebrow mb-6">{eyebrow}</p>
         <h1 className="max-w-3xl font-serif text-4xl font-bold leading-[1.1] sm:text-5xl lg:text-[56px]">{title}</h1>
-        {text && <p className="mt-6 max-w-2xl text-[18px] leading-relaxed text-slate-body">{text}</p>}
+        {text &&
+          (typeof text === "string" ? (
+            <p className="mt-6 max-w-2xl text-[18px] leading-relaxed text-slate-body">{text}</p>
+          ) : (
+            <div className="mt-6">{text}</div>
+          ))}
       </div>
     </section>
   );

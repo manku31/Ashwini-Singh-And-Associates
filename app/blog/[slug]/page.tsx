@@ -97,7 +97,20 @@ async function PostContent({ params }: { params: Params }) {
       <PageHero
         eyebrow={post.category}
         title={post.title}
-        text={`${post.author} · ${date} · ${post.readTime}`}
+        text={
+          <div className="flex items-center gap-3.5">
+            <span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-full bg-navy text-sm font-bold text-white">
+              {post.author.split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase()}
+            </span>
+            <p className="flex flex-col text-left leading-tight">
+              <span className="text-[13px] font-semibold tracking-[0.12em] text-slate-body">WRITTEN BY</span>
+              <span className="text-base font-bold text-navy">{post.author}</span>
+              <span className="mt-0.5 text-[14px] text-slate-body">
+                Published on <time dateTime={post.date}>{date}</time>
+              </span>
+            </p>
+          </div>
+        }
         crumbs={[{ label: "Blog", href: "/blog" }, { label: post.title }]}
       />
 

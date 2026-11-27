@@ -5,6 +5,7 @@ import { logout } from "../actions";
 
 const tabs = [
   { href: "/admin", label: "Overview" },
+  { href: "/admin/blogs", label: "Blog views" },
   { href: "/admin/requests", label: "Requests" },
   { href: "/admin/subscribers", label: "Subscribers" },
 ];
